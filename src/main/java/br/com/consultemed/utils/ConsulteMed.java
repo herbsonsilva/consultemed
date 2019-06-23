@@ -1,16 +1,16 @@
-// ConsulteMed.Java
-// Representa um sistema de um Consultório Médico
 package br.com.consultemed.utils;
 
 import br.com.consultemed.system.*;
 
+// ConsulteMed.Java
+// Representa um sistema de um Consultório Médico
 public class ConsulteMed {
    private boolean usuarioAutenticado; // se usuário foi autenticado
    private int currentAccountNumber; // número atual da conta de usuário
    private Tela tela; // Tela do ConsulteMed
    private Teclado teclado; // Teclado do ConsulteMed
-   // private CashDispenser cashDispenser; // dispensador de cédulas do ConsulteMed
-   // private DepositSlot depositSlot; // Abertura para depósito do ConsulteMed
+   private CashDispenser cashDispenser; // dispensador de cédulas do ConsulteMed
+   private DepositoSlot depositoSlot; // Abertura para depósito do ConsulteMed
    private BankDatabase bankDatabase; // banco de dados de informações de contas
 
    // constantes que correspondem as principais opções do menu
@@ -34,7 +34,7 @@ public class ConsulteMed {
       tela = new Tela(); // cria a tela
       teclado = new Teclado(); // cria o teclado num�rico
       // cashDispenser = new CashDispenser(); // cria o dispensador de cédulas
-      // depositSlot = new DepositSlot(); // cria a abertura para depósito
+      // depositoSlot = new DepositoSlot(); // cria a abertura para depósito
       bankDatabase = new BankDatabase(); // cria o banco de dados de informações de contas
    } // fim do construtor ConsulteMed sem argumento
 
@@ -48,7 +48,7 @@ public class ConsulteMed {
             autenticaUsuario(); // autentica o usuário
          } // fim do while
 
-         performTransactions(); // o usuário agora está autenticado
+         performTransacaos(); // o usuário agora está autenticado
          usuarioAutenticado = false; // reinicializa antes da próxima sessão do ConsulteMed
          currentAccountNumber = 0; // reinicializa antes da próxima sessão do ConsulteMed
          tela.exibirMensagemLinha("\nObrigado! Até breve!");
@@ -66,7 +66,7 @@ public class ConsulteMed {
       // dados
       usuarioAutenticado = bankDatabase.autenticaUsuario(accountNumber, pin);
 
-      // verifica se a autentica��o foi bem-sucedida
+      // verifica se a autenticação foi bem-sucedida
       if (usuarioAutenticado) {
          currentAccountNumber = accountNumber; // salva a conta do usuário #
       } // fim do if
@@ -75,18 +75,18 @@ public class ConsulteMed {
    } // fim do método autenticaUsuario
 
    // exibe o menu principal e realiza transações
-   private void performTransactions() {
-      // vari�vel local para armazenar a transa��o atualmente processada
-      Transaction currentTransaction = null;
+   private void performTransacaos() {
+      // variável local para armazenar a transação atualmente processada
+      Transacao currentTransacao = null;
 
       boolean userExited = false; // usuário optou por não sair
 
-      // faz um loop enquanto o usuário não escolher a op��o para sair do sistema
+      // faz um loop enquanto o usuário não escolher a opção para sair do sistema
       while (!userExited) {
-         // mostra o menu principal e obt�m a sele��o de usuário
+         // mostra o menu principal e obtém a seleção de usuário
          int mainMenuSelection = displayMainMenu();
 
-         // decide como prosseguir com base na sele��o de menu feita pelo usuário
+         // decide como prosseguir com base na seleção de menu feita pelo usuário
          switch (mainMenuSelection) {
          // o usuário optou por realizar um entre tr�s tipos de transações
          case CADASTRAR_PACIENTE:
@@ -94,9 +94,9 @@ public class ConsulteMed {
          case CADASTRAR_MEDICO:
 
             // inicializa como o novo objeto do tipo escolhido
-            currentTransaction = createTransaction(mainMenuSelection);
+            currentTransacao = createTransacao(mainMenuSelection);
 
-            currentTransaction.execute(); // executa a transa��o
+            currentTransacao.execute(); // executa a transação
             break;
          case SAIR: // usuário optou por terminar a sessão
             tela.exibirMensagemLinha("\nExiting the system...");
@@ -107,38 +107,36 @@ public class ConsulteMed {
             break;
          } // fim de switch
       } // fim do while
-   } // fim do método performTransactions
+   } // fim do método performTransacaos
 
-   // exibe o menu principal e retorna uma sele��o de entrada
+   // exibe o menu principal e retorna uma seleção de entrada
    private int displayMainMenu() {
       tela.exibirMensagemLinha("\nMain menu:");
       tela.exibirMensagemLinha("1 - View my balance");
       tela.exibirMensagemLinha("2 - Withdraw cash");
-      tela.exibirMensagemLinha("3 - Deposit funds");
+      tela.exibirMensagemLinha("3 - Deposito funds");
       tela.exibirMensagemLinha("4 - Exit\n");
       tela.exibirMensagem("Enter a choice: ");
-      return teclado.getInput(); // retorna a sele��o do usuário
+      return teclado.getInput(); // retorna a seleção do usuário
    } // fim do método displayMainMenu
 
-   // retorna o objeto da subclasse de Transaction especificada
-   // private Transaction createTransaction(int type) {
-   // Transaction temp = null; // vari�vel Transaction tempor�ria
+   // retorna o objeto da subclasse de Transacao especificada
+   private Transacao createTransacao(int type) {
+      Transacao temp = null; // variável Transacao temporária
 
-   // // determina qual tipo de Transaction criar
-   // switch (type) {
-   // case CADASTRAR_PACIENTE: // cria uma nova transa��o BalanceInquiry
-   // temp = new BalanceInquiry(currentAccountNumber, tela, bankDatabase);
-   // break;
-   // case CONSULTAR_PACIENTE: // cria uma nova transa��o Withdrawal
-   // temp = new Withdrawal(currentAccountNumber, tela, bankDatabase, teclado,
-   // cashDispenser);
-   // break;
-   // case CADASTRAR_MEDICO: // cria uma nova transa��o Deposit
-   // temp = new Deposit(currentAccountNumber, tela, bankDatabase, teclado,
-   // depositSlot);
-   // break;
-   // } // fim de switch
+      // determina qual tipo de Transacao criar
+      switch (type) {
+      case CADASTRAR_PACIENTE: // cria uma nova transação BalanceInquiry
+         temp = new BalanceInquiry(currentAccountNumber, tela, bankDatabase);
+         break;
+      case CONSULTAR_PACIENTE: // cria uma nova transação Retirada
+         temp = new Retirada(currentAccountNumber, tela, bankDatabase, teclado, cashDispenser);
+         break;
+      case CADASTRAR_MEDICO: // cria uma nova transação Deposito
+         temp = new Deposito(currentAccountNumber, tela, bankDatabase, teclado, depositoSlot);
+         break;
+      } // fim de switch
 
-   // return temp; // retorna o objeto rec�m-criado
-   // } // fim do método createTransaction
+      return temp; // retorna o objeto rec�m-criado
+   } // fim do método createTransacao
 } // fim da classe ConsulteMed

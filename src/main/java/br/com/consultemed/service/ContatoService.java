@@ -6,14 +6,13 @@ import br.com.consultemed.dao.ContatoDAO;
 import br.com.consultemed.model.Contato;
 
 /**
- * @author lab10usuario40
- * Classe responsável pela acesso aos dados no banco
+ * @author lab10usuario40 Classe responsável pela acesso aos dados no banco
  */
 
-public class ContatoService implements IContato{
-	
+public class ContatoService implements IContato {
+
 	private ContatoDAO dao;
-	
+
 	public ContatoService() {
 		this.dao = new ContatoDAO();
 	}
@@ -48,13 +47,14 @@ public class ContatoService implements IContato{
 		return this.dao.buscarPorNome(nome);
 	}
 
-	// @Override
-	// public Contato buscarPorCpf(String cpf) {
-	// 	return this.dao.buscarPorCpf(cpf);
-	// }
-
 	@Override
 	public Contato buscarPorEmail(String email) {
-		return this.dao.buscarPorEmail(email);
+		// return this.dao.buscarPorEmail(email);
+		return null;
 	}
+
+	// @Override
+	// public Contato buscarPorCpf(String cpf) {
+	// return this.dao.buscarPorCpf(cpf);
+	// }
 }
