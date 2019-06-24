@@ -15,6 +15,19 @@ public class Main {
 
 		ConsulteMed consulteMed = new ConsulteMed();
 		consulteMed.iniciar();
+		
+		//Login....:	"carlos"
+		//PIN......:	1234
+		
+		//Login....:	"usuario"
+		//PIN......:	4321
+		
+	} // fim de main
+	
+} // fim da classe Main
+		
+		
+		
 
 		// System.out.println("Clínica CONSULTEMED");
 		// System.out.println("");
@@ -139,5 +152,4 @@ public class Main {
 
 		// System.out.println("Contato " + contatoBanco.getNome() + " retornado com
 		// sucesso.");
-	} // fim de main
-} // fim da classe Main
+

@@ -1,4 +1,4 @@
-package br.com.consultemed.system;
+package br.com.consultemed.utils;
 
 import br.com.consultemed.utils.*;
 

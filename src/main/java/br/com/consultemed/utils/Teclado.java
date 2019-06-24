@@ -15,8 +15,12 @@ public class Teclado
    } // fim do construtor Teclado sem argumentos
 
    // retorna um valor inteiro inserido pelo usuário
-   public int getInput()
+   public int getInputInt()
    {
       return input.nextInt(); // supomos que o usuário insira um inteiro
    } // fim do método getInput
+
+   public String getInputText() {
+      return input.nextLine(); // supomos que o usuário insira um texto
+   } // fim do método getInputText
 } // fim da classe Teclado

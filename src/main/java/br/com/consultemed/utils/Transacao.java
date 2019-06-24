@@ -1,25 +1,23 @@
-package br.com.consultemed.system;
-
-import br.com.consultemed.utils.*;
+package br.com.consultemed.utils;
 
 // Transacao.java
 // A superclasse abstrata Transacao representa uma transação no ConsulteMed
 
 public abstract class Transacao {
-   private int numeroConta; // indica conta envolvida
+   private int login; // indica conta envolvida
    private Tela tela; // Tela do ConsulteMed
-   private BankDatabase bankDatabase; // banco de dados de informações sobre a conta
+   private Usuario usuario; // banco de dados de informações sobre a conta
 
    // Construtor de Transacao invocado pelas subclasses utilizando super()
-   public Transacao(int userAccountNumber, Tela cmTela, BankDatabase cmBankDatabase) {
-      numeroConta = userAccountNumber;
+   public Transacao(int userLogin, Tela cmTela, Usuario cmUsuario) {
+      login = userLogin;
       tela = cmTela;
-      bankDatabase = cmBankDatabase;
+      usuario = cmUsuario;
    } // fim do construtor de Transacao
 
    // retorna o número da conta
-   public int getAccountNumber() {
-      return numeroConta;
+   public int getLogin() {
+      return login;
    } // fim do método getAccountNumber
 
    // retorna a referência à tela
@@ -28,8 +26,8 @@ public abstract class Transacao {
    } // fim do método getTela
 
    // retorno a referência ao banco de dados da instituição financeira
-   public BankDatabase getBankDatabase() {
-      return bankDatabase;
+   public Usuario getUsuario() {
+      return usuario;
    } // fim do método getBankDatabase
 
    // realiza a transação (sobrescrita por cada subclasse)

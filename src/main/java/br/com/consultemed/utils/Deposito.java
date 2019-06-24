@@ -1,4 +1,4 @@
-package br.com.consultemed.system;
+package br.com.consultemed.utils;
 
 import br.com.consultemed.utils.*;
 
@@ -24,7 +24,7 @@ public class Deposito extends Transacao {
 
    // realiza a transação
    public void execute() {
-      BankDatabase bankDatabase = getBankDatabase(); // obtém a referência
+      BankDatabase bankDatabase = getUsuario(); // obtém a referência
       Tela screen = getTela(); // obtém a referência
 
       quantia = promptForDepositoAmount(); // obtém a quantia de depósito do usuário
@@ -46,7 +46,7 @@ public class Deposito extends Transacao {
                         + "be available until we verify the quantia of any " + "enclosed cash and your checks clear.");
 
             // credita na conta para refletir o depósito
-            bankDatabase.credit(getAccountNumber(), quantia);
+            bankDatabase.credit(getLogin(), quantia);
          } // fim do if
          else // envelope de depósito n�o foi recebido
          {
