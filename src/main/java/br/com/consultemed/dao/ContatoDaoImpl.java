@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.consultemed.dao;
 
 import java.util.ArrayList;
@@ -14,10 +11,6 @@ import javax.persistence.TypedQuery;
 import br.com.consultemed.model.Contato;
 import br.com.consultemed.utils.JPAUtils;
 
-/**
- * @author carlosbarbosagomesfilho
- *
- */
 public class ContatoDaoImpl implements IContatoDao {
 
 	EntityManagerFactory emf = JPAUtils.getEntityManagerFactory();

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.consultemed.model;
 
 import javax.persistence.Entity;
@@ -8,10 +5,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
-/**
- * @author carlosbarbosagomesfilho
- *
- */
 @SuppressWarnings("serial")
 @NamedQueries({
 	@NamedQuery(name = "Contato.findAllCount", query = "SELECT COUNT(c) FROM Contato c"),

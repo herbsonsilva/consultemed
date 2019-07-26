@@ -36,7 +36,7 @@
 	            <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
 	            <div class="info-box-content">
 	              <span class="info-box-text">Médicos</span>
-	              <span class="info-box-number">0</span>
+	              <span class="info-box-number">${numMedicos}</span>
 	            </div>
 	          </div>
 	        </div>
@@ -49,8 +49,8 @@
 	            <span class="info-box-icon bg-green"><i class="ion ion-ios-people-outline"></i></span>
 	
 	            <div class="info-box-content">
-	              <span class="info-box-text">Agedamentos</span>
-	              <span class="info-box-number">0</span>
+	              <span class="info-box-text">Agendamentos</span>
+	              <span class="info-box-number">${numAgendamentos}</span>
 	            </div>
 	          </div>
 	        </div>
@@ -60,7 +60,7 @@
 	
 	            <div class="info-box-content">
 	              <span class="info-box-text">Pacientes</span>
-	              <span class="info-box-number">0</span>
+	              <span class="info-box-number">${numPacientes}</span>
 	            </div>
 	          </div>
 	        </div>

@@ -70,8 +70,11 @@
           </a>
         </li>
         
+	    <li><a href="${pageContext.request.contextPath}/admin/medicos?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Médicos</span></a></li>
+	    <li><a href="${pageContext.request.contextPath}/admin/pacientes?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Pacientes</span></a></li>
         <li><a href="${pageContext.request.contextPath}/admin/contatos?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Contatos</span></a></li>
-        
+	    <li><a href="${pageContext.request.contextPath}/admin/agendamentos?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Agendamentos</span></a></li>
+	    <li><a href="${pageContext.request.contextPath}/admin/consultas?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Consultas</span></a></li>
 	    <li><a href="${pageContext.request.contextPath}/admin/usuarios?action=list"><i class="fa fa-circle-o text-aqua"></i> <span>Usuários</span></a></li>
       </ul>
     </section>
@@ -91,7 +94,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2018-2019 <a href="https://github.com/CarlosBarbosaFilho">Carlos Barbosa G. Filho</a>.</strong> Todos os direitos reservsados
+    <strong>Copyright &copy; 2019 <a href="https://github.com/HerbsonSilva">Herbson Silva</a>.</strong> Todos os direitos reservados
   </footer>
 
 

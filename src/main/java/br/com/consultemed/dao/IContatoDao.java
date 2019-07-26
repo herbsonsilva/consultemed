@@ -1,17 +1,9 @@
-/**
- * 
- */
 package br.com.consultemed.dao;
 
 import java.util.Collection;
 
 import br.com.consultemed.model.Contato;
 
-
-/**
- * @author carlosbarbosagomesfilho
- *
- */
 public interface IContatoDao extends GenericDao<Contato, Long> {
 
 	public void save(Contato contato) throws Exception;
