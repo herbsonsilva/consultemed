@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `TB_PACIENTES`
+--
+
+DROP TABLE IF EXISTS `TB_PACIENTES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TB_PACIENTES` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `TELEFONE` varchar(30) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TB_PACIENTES`
+--
+
+LOCK TABLES `TB_PACIENTES` WRITE;
+/*!40000 ALTER TABLE `TB_PACIENTES` DISABLE KEYS */;
+INSERT INTO `TB_PACIENTES` VALUES (1,'Maria Aparecida','mariaaparecida@gmail.com','77777777');
+/*!40000 ALTER TABLE `TB_PACIENTES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `TB_CONTATOS`
 --
 
@@ -39,6 +65,32 @@ LOCK TABLES `TB_CONTATOS` WRITE;
 /*!40000 ALTER TABLE `TB_CONTATOS` DISABLE KEYS */;
 INSERT INTO `TB_CONTATOS` VALUES (1,'Carlos Barbosa Gomes Filho','cbarbosagomesfilho@gmail.com','83991267778');
 /*!40000 ALTER TABLE `TB_CONTATOS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TB_MEDICOS`
+--
+
+DROP TABLE IF EXISTS `TB_MEDICOS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TB_MEDICOS` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NOME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `TELEFONE` varchar(30) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TB_MEDICOS`
+--
+
+LOCK TABLES `TB_MEDICOS` WRITE;
+/*!40000 ALTER TABLE `TB_MEDICOS` DISABLE KEYS */;
+INSERT INTO `TB_MEDICOS` VALUES (1,'Alexandre Silva','alexandresilva@gmail.com','999999999');
+/*!40000 ALTER TABLE `TB_MEDICOS` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -68,7 +120,7 @@ CREATE TABLE `TB_USUARIOS` (
 
 LOCK TABLES `TB_USUARIOS` WRITE;
 /*!40000 ALTER TABLE `TB_USUARIOS` DISABLE KEYS */;
-INSERT INTO `TB_USUARIOS` VALUES (2,'Carlos Barbosa','cbgomes','cbgomes@gmail.com','00000000','12345',1,0,0),(3,'xico','xico','xico@gmail.com','090909090909','123',0,1,0);
+INSERT INTO `TB_USUARIOS` VALUES (2,'Carlos Barbosa','cbgomes','cbgomes@gmail.com','00000000','827CCB0EEA8A706C4C34A16891F84E7B',1,0,0),(3,'xico','xico','xico@gmail.com','090909090909','123',0,1,0);
 /*!40000 ALTER TABLE `TB_USUARIOS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
